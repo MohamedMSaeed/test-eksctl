@@ -3,7 +3,7 @@ name: elastalert
 on:
   push:
     paths:
-      - 'clusters/**'
+      - 'clusters/*/eksctl-cluster.yaml'
 
 jobs:
   create-cluster:
