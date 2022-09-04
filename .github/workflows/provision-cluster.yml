@@ -9,6 +9,9 @@ jobs:
   create-cluster:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 
       # - name: setup aws credentials
       #   if: ${{ inputs.management-cluster-kind == 'eks' }}
       #   uses: aws-actions/configure-aws-credentials@v1
@@ -45,6 +48,12 @@ jobs:
         uses: tj-actions/changed-files@v29.0.3
         with:
           dir_names: "true"
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
 
   # install-WGE:
   #   runs-on: ubuntu-latest
