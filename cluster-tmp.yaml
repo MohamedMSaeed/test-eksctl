@@ -4,9 +4,9 @@ kind: ClusterConfig
 metadata:
   name: ${CLUSTER_NAME}
   region: us-east-1
-  version: ${CLUSTER_VERSION}
+  version: "${CLUSTER_VERSION}"
   tags:
-    environment: ${CLUSTER_NAME}
+    environment: "${CLUSTER_NAME}"
 
 managedNodeGroups:
   - name: ${CLUSTER_NAME}-ng-1
@@ -16,7 +16,7 @@ managedNodeGroups:
     desiredCapacity: 2
     volumeSize: 10
     tags:
-      environment: ${CLUSTER_NAME}
+      environment: "${CLUSTER_NAME}"
     propagateASGTags: true
     iam:
       withAddonPolicies:

@@ -4,9 +4,9 @@ kind: ClusterConfig
 metadata:
   name: hamada
   region: us-east-1
-  version: 1.21
+  version: "1.21"
   tags:
-    environment: hamada
+    environment: "hamada"
 
 managedNodeGroups:
   - name: hamada-ng-1
@@ -16,7 +16,7 @@ managedNodeGroups:
     desiredCapacity: 2
     volumeSize: 10
     tags:
-      environment: hamada
+      environment: "hamada"
     propagateASGTags: true
     iam:
       withAddonPolicies:
@@ -31,4 +31,4 @@ gitops:
       private: "true"
       branch: "main"
       namespace: "flux-system"
-      path: "clusters/hamada"
+      path: "clusters/hamada/management"
