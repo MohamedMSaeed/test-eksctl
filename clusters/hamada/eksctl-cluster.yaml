@@ -32,4 +32,3 @@ gitops:
       branch: "main"
       namespace: "flux-system"
       path: "clusters/hamada/management"
-
