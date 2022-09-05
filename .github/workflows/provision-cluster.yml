@@ -56,12 +56,12 @@ jobs:
           done
 
       - name: Run step when a file changes
-        if: contains(steps.changed-files.outputs.modified_files, 'clusters/*/eksctl-cluster.yaml')
+        if: contains(steps.changed-files.outputs.modified_files, 'clusters/**/eksctl-cluster.yaml')
         run: |
           echo "Your my-file.txt file has been modified."
       
       - name: Run step when a file changes
-        if: contains(steps.changed-files.outputs.added_files, 'clusters/*/eksctl-cluster.yaml')
+        if: contains(steps.changed-files.outputs.added_files, 'clusters/hamada/eksctl-cluster.yaml')
         run: |
           echo "Your my-file.txt file has been added."
       
