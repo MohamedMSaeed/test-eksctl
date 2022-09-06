@@ -3,7 +3,6 @@
 # How to use:
 #      run ./provision-cluster.sh CLUSTER_NAME
 
-
 CLUSTER_NAME=$1
 if [ -z $1 ]
 then
