@@ -2,21 +2,22 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: ${CLUSTER_NAME}
-  region: us-east-1
-  version: "${CLUSTER_VERSION}"
+  name: wge-demo-01
+  region: eu-north-1
+  # region: us-east-1
+  version: "1.23"
   tags:
-    environment: "${CLUSTER_NAME}"
+    environment: "wge-demo-01"
 
 managedNodeGroups:
-  - name: ${CLUSTER_NAME}-ng-1
+  - name: wge-demo-01-ng-1
     instanceType: t3.medium
     minSize: 2
     maxSize: 2
     desiredCapacity: 2
     volumeSize: 10
     tags:
-      environment: "${CLUSTER_NAME}"
+      environment: "wge-demo-01"
     propagateASGTags: true
     iam:
       withAddonPolicies:
@@ -31,4 +32,4 @@ gitops:
       private: "true"
       branch: "main"
       namespace: "flux-system"
-      path: "clusters/${CLUSTER_NAME}/management"
+      path: "clusters/wge-demo-01/management"

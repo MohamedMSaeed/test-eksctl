@@ -56,19 +56,19 @@ jobs:
           done
 
       - name: Run step when a file changes
-        if: contains(steps.changed-files.outputs.modified_files, 'clusters/**/eksctl-cluster.yaml')
-        run: |
-          echo "Your my-file.txt file has been modified."
-      
-      - name: Run step when a file changes
-        if: contains(steps.changed-files.outputs.added_files, 'clusters/hamada/eksctl-cluster.yaml')
+        if: contains(steps.changed-files.outputs.added_files, 'clusters/**/eksctl-cluster.yaml')
         run: |
           echo "Your my-file.txt file has been added."
       
       - name: Run step when a file changes
-        if: contains(steps.changed-files.outputs.deleted_files, 'clusters/*/eksctl-cluster.yaml')
+        if: contains(steps.changed-files.outputs.added_files, 'clusters/wge-demo-01/eksctl-cluster.yaml')
         run: |
-          echo "Your my-file.txt file has been deleted."
+          echo "Your my-file.txt file has been added."
+      
+      - name: Run step when a file changes
+        if: contains(steps.changed-files.outputs.added_files, "clusters/*/eksctl-cluster.yaml")
+        run: |
+          echo "Your my-file.txt file has been added."
 
   # install-WGE:
   #   runs-on: ubuntu-latest

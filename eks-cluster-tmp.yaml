@@ -2,21 +2,22 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: hamada
+  name: ${CLUSTER_NAME}
+  # region: eu-north-1
   region: us-east-1
-  version: "1.21"
+  version: "${CLUSTER_VERSION}"
   tags:
-    environment: "hamada"
+    environment: "${CLUSTER_NAME}"
 
 managedNodeGroups:
-  - name: hamada-ng-1
+  - name: ${CLUSTER_NAME}-ng-1
     instanceType: t3.medium
     minSize: 2
     maxSize: 2
     desiredCapacity: 2
     volumeSize: 10
     tags:
-      environment: "hamada"
+      environment: "${CLUSTER_NAME}"
     propagateASGTags: true
     iam:
       withAddonPolicies:
@@ -31,4 +32,4 @@ gitops:
       private: "true"
       branch: "main"
       namespace: "flux-system"
-      path: "clusters/hamada/management"
+      path: "clusters/${CLUSTER_NAME}/management"
